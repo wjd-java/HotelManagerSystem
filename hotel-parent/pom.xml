@@ -206,4 +206,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<modules>
+		<module>hotel-manager</module>
+	</modules>
 </project>
