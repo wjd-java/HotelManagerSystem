@@ -197,7 +197,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!-- 配置Tomcat插件 -->
+				<!-- 配置Tomcat的插件 -->
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
