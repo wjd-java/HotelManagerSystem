@@ -1,4 +1,4 @@
-package com.hotel.pojo;
+package com.wjd.pojo;
 
 public class TbAdmin {
     private String adminId;
