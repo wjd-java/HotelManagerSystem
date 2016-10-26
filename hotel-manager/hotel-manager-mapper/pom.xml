@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>hotel-manager-mapper</artifactId>
-  <!-- 依赖管理 -->
+  <!-- 依赖管 理 -->
 	<dependencies>
 		<dependency>
 			<groupId>com.wjd</groupId>
