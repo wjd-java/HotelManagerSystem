@@ -1,15 +1,13 @@
 package com.wjd.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hotel.service.AdminService;
 import com.wjd.pojo.TbAdmin;
+import com.wjd.service.AdminService;
 
 @Controller
 public class AdminController {
