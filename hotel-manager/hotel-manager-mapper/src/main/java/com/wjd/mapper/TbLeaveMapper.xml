@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjd.mapper.TbLeaveMapper" >
+  <resultMap id="BaseResultMap" type="com.wjd.pojo.TbLeave" >
+    <id column="leave_id" property="leaveId" jdbcType="VARCHAR" />
+    <result column="leave_time" property="leaveTime" jdbcType="TIMESTAMP" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="room_id" property="roomId" jdbcType="VARCHAR" />
+    <result column="spend_money" property="spendMoney" jdbcType="REAL" />
+    <result column="remain_money" property="remainMoney" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    leave_id, leave_time, id_card, room_id, spend_money, remain_money
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjd.pojo.TbLeaveExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_leave
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_leave
+    where leave_id = #{leaveId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_leave
+    where leave_id = #{leaveId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wjd.pojo.TbLeaveExample" >
+    delete from tb_leave
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wjd.pojo.TbLeave" >
+    insert into tb_leave (leave_id, leave_time, id_card, 
+      room_id, spend_money, remain_money
+      )
+    values (#{leaveId,jdbcType=VARCHAR}, #{leaveTime,jdbcType=TIMESTAMP}, #{idCard,jdbcType=VARCHAR}, 
+      #{roomId,jdbcType=VARCHAR}, #{spendMoney,jdbcType=REAL}, #{remainMoney,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjd.pojo.TbLeave" >
+    insert into tb_leave
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="leaveId != null" >
+        leave_id,
+      </if>
+      <if test="leaveTime != null" >
+        leave_time,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="spendMoney != null" >
+        spend_money,
+      </if>
+      <if test="remainMoney != null" >
+        remain_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="leaveId != null" >
+        #{leaveId,jdbcType=VARCHAR},
+      </if>
+      <if test="leaveTime != null" >
+        #{leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null" >
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="spendMoney != null" >
+        #{spendMoney,jdbcType=REAL},
+      </if>
+      <if test="remainMoney != null" >
+        #{remainMoney,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wjd.pojo.TbLeaveExample" resultType="java.lang.Integer" >
+    select count(*) from tb_leave
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_leave
+    <set >
+      <if test="record.leaveId != null" >
+        leave_id = #{record.leaveId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leaveTime != null" >
+        leave_time = #{record.leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.idCard != null" >
+        id_card = #{record.idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomId != null" >
+        room_id = #{record.roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spendMoney != null" >
+        spend_money = #{record.spendMoney,jdbcType=REAL},
+      </if>
+      <if test="record.remainMoney != null" >
+        remain_money = #{record.remainMoney,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_leave
+    set leave_id = #{record.leaveId,jdbcType=VARCHAR},
+      leave_time = #{record.leaveTime,jdbcType=TIMESTAMP},
+      id_card = #{record.idCard,jdbcType=VARCHAR},
+      room_id = #{record.roomId,jdbcType=VARCHAR},
+      spend_money = #{record.spendMoney,jdbcType=REAL},
+      remain_money = #{record.remainMoney,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjd.pojo.TbLeave" >
+    update tb_leave
+    <set >
+      <if test="leaveTime != null" >
+        leave_time = #{leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null" >
+        room_id = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="spendMoney != null" >
+        spend_money = #{spendMoney,jdbcType=REAL},
+      </if>
+      <if test="remainMoney != null" >
+        remain_money = #{remainMoney,jdbcType=REAL},
+      </if>
+    </set>
+    where leave_id = #{leaveId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjd.pojo.TbLeave" >
+    update tb_leave
+    set leave_time = #{leaveTime,jdbcType=TIMESTAMP},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      room_id = #{roomId,jdbcType=VARCHAR},
+      spend_money = #{spendMoney,jdbcType=REAL},
+      remain_money = #{remainMoney,jdbcType=REAL}
+    where leave_id = #{leaveId,jdbcType=VARCHAR}
+  </update>
+</mapper>
