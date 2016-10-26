@@ -1,0 +1,31 @@
+package com.wjd.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hotel.service.AdminService;
+import com.wjd.mapper.TbAdminMapper;
+import com.wjd.pojo.TbAdmin;
+import com.wjd.pojo.TbAdminExample;
+import com.wjd.pojo.TbAdminExample.Criteria;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+
+	@Autowired
+	private TbAdminMapper adminMapper;
+	
+	public void setAdminMapper(TbAdminMapper adminMapper) {
+		this.adminMapper = adminMapper;
+	}
+
+
+	@Override
+	public TbAdmin getAdminByUsername(String username) {
+		TbAdmin admin = adminMapper.selectByUsername(username);
+		return admin;
+	}
+
+}
