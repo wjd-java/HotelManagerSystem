@@ -31,7 +31,14 @@ public class AdminController {
 			map.addAttribute("error","密码错误");
 			return "login";
 		}
+		map.addAttribute("admin_account", admin.getAdminAccount());
 		map.addAttribute("permissions",admin.getPermissions());
 		return "index";
+	}
+	
+	@RequestMapping("/sign_out")
+	public String sign_out(ModelMap map){
+		map.clear();
+		return "login";
 	}
 }

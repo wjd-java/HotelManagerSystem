@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- 背景设置-->
 		<div class="settings" id="settings">
         <div class="wrapper">
@@ -40,9 +41,9 @@
 		<div class="left">
 			<a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
 			你好, 
-			<a href="#">WJD</a>
+			<a href="#">${admin_account}</a>
 			|
-			<a href="#">退出</a>
+			<a href="sign_out">退出</a>
 		</div>
 		<div class="right">
 			<form action="#" id="search" class="search placeholder">
@@ -75,7 +76,9 @@
 			</li>
 			<li class="current"><a href="#"><img src="img/icons/menu/brush.png" alt="" />客房</a>
 				<ul>
+					<c:if test="${permissions == '管理员' }" >
 					<li><a href="room_add.html">添加</a></li>
+					</c:if>
 					<li><a href="#">查看</a></li>
 					<li><a href="#">修改</a></li>
 					<li><a href="#">删除</a></li>
