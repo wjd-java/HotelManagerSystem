@@ -30,13 +30,13 @@
               CONTENT 
                         --> 
      <div id="content" class="white">
-		<form action="" method="">
+		<form action="user_add" method="post">
 		<div class="bloc">
 			<div class="title">客户添加</div>
 			<div class="content">
 				<div class="input">
 					<label for="input1">姓名</label>
-					<input type="text" id="name" />
+					<input type="text" id="name" name="name"/>
 				</div>
 				<!--
 				<div class="input">
@@ -55,15 +55,15 @@
 				</div>
 				<div class="input">
 					<label for="input2">身份证号码</label>
-					<input type="text" id="id_card" />
+					<input type="text" id="id_card" name="idCard"/>
 				</div>
 				<div class="input">
 					<label for="input2">手机/电话</label>
-					<input type="text" id="phone_number" />
+					<input type="text" id="phone_number" name="phoneNumber"/>
 				</div>
 				<div class="input long">
 					<label for="input3">地址</label>
-					<input type="text" id="address" />
+					<input type="text" id="address" name="address" />
 				</div>
 				<div class="submit">
 					<input type="submit" value="添加" />

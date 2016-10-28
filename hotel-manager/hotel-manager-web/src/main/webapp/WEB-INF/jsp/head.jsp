@@ -64,9 +64,9 @@
 			</li>
 			<li class="current"><a href="#"><img src="img/icons/menu/layout.png" alt="" /> 客户</a>
 				<ul>
-											<li class="current"><a href="user_add.html">添加</a></li>
-											<li><a href="find_alluser.html">全部查询</a></li>
-											<li><a href="find_inhotel.html">在店查询</a></li>
+											<li class="current"><a href="user_add">添加</a></li>
+											<li><a href="find_alluser">全部查询</a></li>
+											<li><a href="find_inhotel">在店查询</a></li>
 											<!--<li><a href="notifications.html?p=notif">Notifications</a></li>
 											<li><a href="charts.html?p=charts">Charts</a></li>
 											<li><a href="typography.html?p=typo">Typography</a></li>
