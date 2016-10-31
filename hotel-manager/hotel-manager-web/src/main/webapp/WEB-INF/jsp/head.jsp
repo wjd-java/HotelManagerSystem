@@ -40,8 +40,15 @@
 	<div id="head">
 		<div class="left">
 			<a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+			<c:if test="${empty admin_account}">
+				<script type="text/javascript">
+				window.location.href="/"; 
+				</script>
+			</c:if>
+			<c:if test="${not empty admin_account}">
 			你好, 
 			<a href="#">${admin_account}</a>
+			</c:if>
 			|
 			<a href="sign_out">退出</a>
 		</div>
