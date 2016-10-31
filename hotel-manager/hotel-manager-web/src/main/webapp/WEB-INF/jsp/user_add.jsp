@@ -52,8 +52,8 @@
 				-->
 				<div class="input">
 					<label class="label">性别</label>
-					<input type="radio" id="radio1" name="sex"  value="male" checked="checked"/><label for="radio1" class="inline">男</label> <br/>
-					<input type="radio" id="radio2"  name="sex" value="female" /><label for="radio2" class="inline">女</label>
+					<input type="radio" id="radio1" name="sex"  value="男" checked="checked"/><label for="radio1" class="inline">男</label> <br/>
+					<input type="radio" id="radio2"  name="sex" value="女" /><label for="radio2" class="inline">女</label>
 				</div>
 				<div class="input">
 					<label for="input2">身份证号码</label>

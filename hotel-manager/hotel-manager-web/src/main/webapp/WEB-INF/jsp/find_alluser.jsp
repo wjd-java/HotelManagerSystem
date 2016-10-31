@@ -17,15 +17,27 @@
         -->
         <link rel="stylesheet" href="css/min.css" />
         <script type="text/javascript" src="js/min.js"></script>
-        
+        <script type="text/javascript" src="content/settings/main.js"></script>
+		<link rel="stylesheet" href="content/settings/style.css" />
+		<script type="text/javascript">
+			$(function(){
+				var data= $("#select_current").text();
+				var data2 = $("#end").text();
+				if(data == 1){
+					$("#one").addClass("current");
+				}else if(data == 2){
+					$("#two").addClass("current");
+				}else if(data != data2){
+					$("#other").addClass("current");
+				}else{
+					$("#end").addClass("current");
+				}
+			})
+		</script>
     </head>
     <body>
-        
-        <script type="text/javascript" src="content/settings/main.js"></script>
-<link rel="stylesheet" href="content/settings/style.css" />
 
-
-  <%@include file="head.jsp" %>
+ 		 <%@include file="head.jsp" %>
         <!--            
               CONTENT 
                         --> 
@@ -39,121 +51,61 @@
 					<thead>
 						<tr>
 							<th><input type="checkbox" class="checkall"/></th>
-							<th>Title</th>
-							<th>Author</th>
-							<th>Catégories</th>
-							<th>Tags</th>
-							<th><img src="img/th-comment.png" alt="" /></th>
-							<th>Actions</th>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>身份证号码</th>
+							<th>地址</th>
+							<th>电话</th>
+							<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</th>
 						</tr>
 					</thead>
-					<tbody>
-										<tr>
+					<tbody id="tbody">
+					<c:forEach var="user" items="${result.rows}">
+						<tr>
+							
 							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
+							<td><a href="#">${ user.name}</a></td>
+							<td><a href="#">${ user.sex}</a></td>
+							<td><a href="#">${ user.idCard}</a> 
+							<td><a href="#">${ user.address}</a>
+							<td>${ user.phoneNumber}</td>
 							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
 						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-										<tr>
-							<td><input type="checkbox" /></td>
-							<td><a href="#">Lorem ipsum</a></td>
-							<td><a href="#">Grafikart</a></td>
-							<td><a href="#">Dolor</a> , <a href="#">Amet</a></td>
-							<td><a href="#">Consecte</a> , <a href="#">Adipiscin</a>, <a href="#">Elit</a></td>
-							<td>35</td>
-							<td class="actions"><a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a><a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a></td>
-						</tr>
-									</tbody>
+					</c:forEach>
+					</tbody>
 				</table>
-				<div class="left input">
+<!-- 				<div class="left input">
 					<select name="action" id="tableaction">
 						<option value="">Action</option>
 						<option value="delete">Delete</option>
 					</select>
-				</div>
+				</div> -->
 				<div class="pagination">
-					<a href="#" class="prev">«</a>
-					<a href="#">1</a>
-					<a href="#" class="current">2</a>
+					<span style="display:none;" id="select_current">${result.page}</span>
+					<c:if test="${result.page != 1 }">
+						<a href="selectAllUser?page=${result.page-1 }&rows=4" id="prev" class="prev">«</a>
+					</c:if>
+					<c:if test="${result.totalPage >1}">
+						<a href="selectAllUser?page=1&rows=4" id="one">1</a>
+					</c:if>
+					<c:if test="${result.totalPage >2}">
+						<a href="selectAllUser?page=2&rows=4" id="two">2</a>
+					</c:if>
+					<c:if test="${result.totalPage > 3 && result.page != 3}">
 					...
-					<a href="#">21</a>
-					<a href="#">22</a>
-					<a href="#" class="next">»</a>
+					</c:if>
+					<c:if test="${result.page > 2 && result.page != result.totalPage}">
+							<a href="selectAllUser?page=${result.page}&rows=4" id="other">${result.page}</a>
+					</c:if>
+					<c:if test="${result.totalPage > result.page+1 }">
+						<c:if test="${result.page > 2 && result.page != result.totalPage}">
+							...
+						</c:if>
+					</c:if>
+					<a href="selectAllUser?page=${result.totalPage}&rows=4" id="end">${result.totalPage}</a>
+					<c:if test="${result.page < result.totalPage}">
+						<a href="selectAllUser?page=${result.page+1 }&rows=4" id="next" class="next">»</a>
+					</c:if>
 				</div>
 			</div>
 		</div>

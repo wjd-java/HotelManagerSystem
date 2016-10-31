@@ -27,6 +27,7 @@ public class AdminController {
 	@RequestMapping("/login")
 	public String login(@RequestParam("username") String username,@RequestParam("password") String password,
 			ModelMap map,HttpSession session){
+
 		TbAdmin admin = adminService.getAdminByUsername(username);
 		if(admin == null){
 				map.addAttribute("error","账号不存在");

@@ -15,6 +15,14 @@
   	<module>hotel-manager-service</module>
   	<module>hotel-manager-web</module>
   </modules>
+  <!-- 依赖管理 -->
+	<dependencies>
+		<dependency>
+			<groupId>com.wjd</groupId>
+			<artifactId>hotel-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
   <build>
 		<!-- 配置插件 -->
 		<plugins>
