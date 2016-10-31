@@ -17,12 +17,13 @@
         -->
         <link rel="stylesheet" href="css/min.css" />
         <script type="text/javascript" src="js/min.js"></script>
-        
+        <script type="text/javascript" src="content/settings/main.js"></script>
+         <script type="text/javascript" src="js/validate_useradd.js"></script>
+		<link rel="stylesheet" href="content/settings/style.css" />
+		
     </head>
     <body>
         
-        <script type="text/javascript" src="content/settings/main.js"></script>
-<link rel="stylesheet" href="content/settings/style.css" />
 
 <%@include file="head.jsp" %>
                 
@@ -37,6 +38,7 @@
 				<div class="input">
 					<label for="input1">姓名</label>
 					<input type="text" id="name" name="name"/>
+					<span style="color:red;" id="name_val"></span>
 				</div>
 				<!--
 				<div class="input">
@@ -56,17 +58,21 @@
 				<div class="input">
 					<label for="input2">身份证号码</label>
 					<input type="text" id="id_card" name="idCard"/>
+					<span style="color:red;" id="id_card_val"></span>
 				</div>
 				<div class="input">
-					<label for="input2">手机/电话</label>
+					<label for="input2">手机</label>
 					<input type="text" id="phone_number" name="phoneNumber"/>
+					<span style="color:red;" id="phone_number_val"></span>
 				</div>
 				<div class="input long">
 					<label for="input3">地址</label>
 					<input type="text" id="address" name="address" />
+					<span style="color:red;" id="address_val"></span>
 				</div>
+				<span style="color:red;">${user_add_error}</span><br />
 				<div class="submit">
-					<input type="submit" value="添加" />
+					<input type="submit" value="添加" id="submit"/>
 					<input type="reset" value="重置" class="white"/>
 				</div>
 			</div>

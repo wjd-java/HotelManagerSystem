@@ -18,4 +18,9 @@ public class UserServiceImpl implements UserService {
 		userMapper.insert(user);
 	}
 
+	@Override
+	public TbUser selectByIdCard(String idCard) {
+		return userMapper.selectByPrimaryKey(idCard);
+	}
+
 }
